@@ -5,9 +5,9 @@ import fw from '../public/framework.png';
 import code from '../public/code.png';
 import consulting from '../public/consulting.png';
 import p1 from "../public/Project1.mp4";
-import p2 from "../public/Project2.mp4";
-import p3 from "../public/Project3.mp4";
-import p4 from "../public/Project4.mp4";
+import p2 from "../public/project2.mp4";
+import p3 from "../public/project3.mp4";
+import p4 from "../public/project4.mp4";
 import gaming from "../public/Gaming-bro.png";
 import { useState } from 'react';
 
