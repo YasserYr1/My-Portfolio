@@ -37,7 +37,7 @@ export default function Home() {
           </p>
         </div>
         <div className=' flex items-center justify-center'>
-          <div className='relative sm:w-80 w-64 mx-auto bg-gradient-to-b from-teal-500 rounded-full sm:h-80 h-64 overflow-hidden mb-20 mt-20 md:h-96 md:w-96'> 
+          <div className='relative sm:w-80 w-64 mx-auto bg-gradient-to-b from-teal-500 rounded-full sm:h-80 h-64 overflow-hidden mb-2 sm:mb-20 mt-20 md:h-96 md:w-96'> 
             <Image src={gaming} layout='fill' objectFit='cover'/>
           </div>
         </div>
