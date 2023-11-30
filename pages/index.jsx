@@ -15,6 +15,30 @@ import { useState } from 'react';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [read1, setRead1] = useState(false);
+  const [read2, setRead2] = useState(false);
+  const [read3, setRead3] = useState(false);
+  const [read4, setRead4] = useState(false);
+
+  const handleReadMore = (projectNumber) => {
+    switch (projectNumber) {
+      case 1:
+        setRead1(!read1);
+        break;
+      case 2:
+        setRead2(!read2);
+        break;
+      case 3:
+        setRead3(!read3);
+        break;
+      case 4:
+        setRead4(!read4);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className={darkMode ? 'dark' : ''}>
       <Head>
@@ -37,8 +61,8 @@ export default function Home() {
           </p>
         </div>
         <div className=' flex items-center justify-center'>
-          <div className='relative sm:w-80 w-64 mx-auto bg-gradient-to-b from-teal-500 rounded-full sm:h-80 h-64 overflow-hidden mb-2 sm:mb-20 mt-20 md:h-96 md:w-96'> 
-            <Image src={gaming} layout='fill' objectFit='cover'/>
+          <div className='relative sm:w-80 w-64 mx-auto bg-gradient-to-b from-teal-500 rounded-full sm:h-80 h-64 overflow-hidden mb-28 mt-20 md:h-96 md:w-96'> 
+            <Image src={gaming} layout='fill' objectFit='cover' alt='avatar'/>
           </div>
         </div>
       </section>
@@ -52,7 +76,7 @@ export default function Home() {
         </div>
         <div className="lg:flex gap-10">
           <div className='text-center w-[98%]  shadow-lg dark:shadow-slate-800 p-10 rounded-xl my-10 lg:w-1/3'>
-            <Image src={fw} width={120} height={120} className='m-auto'/>
+            <Image src={fw} width={120} height={120} className='m-auto' alt='framework logo'/>
             <h3 className='text-xl font-semibold pt-8 pb-2 dark:text-white'>Les frameworks</h3>
             <h4 className='py-4 text-teal-600'>Les frameworks que j'utilise :</h4>
             <p className='text-gray-800 py-1 dark:text-gray-300'>MERN Stack</p>
@@ -62,7 +86,7 @@ export default function Home() {
           </div>
 
           <div className='text-center w-[98%] shadow-lg dark:shadow-slate-800 p-10 rounded-xl my-10 lg:w-1/3'>
-            <Image src={code} width={120} height={120} className='m-auto'/>
+            <Image src={code} width={120} height={120} className='m-auto' alt='programmation logo'/>
             <h3 className='text-xl font-semibold pt-8 pb-2 dark:text-white'>Les langages de programmation</h3>
             <h4 className='py-4 text-teal-600'> Les langages de programmation que j'utilise :</h4>
             <p className='text-gray-800 py-1 dark:text-gray-300'>JavaScript</p>
@@ -72,7 +96,7 @@ export default function Home() {
           </div>
 
           <div className='text-center w-[98%] shadow-lg dark:shadow-slate-800 p-10 rounded-xl my-10 lg:w-1/3'>
-            <Image src={consulting} width={120} height={120} className='m-auto'/>
+            <Image src={consulting} width={120} height={120} className='m-auto' alt='database logo'/>
             <h3 className='text-xl font-semibold pt-8 pb-2 dark:text-white'>Databases</h3>
             <h4 className='py-4 text-teal-600'>Les Databases que j'utilise :</h4>
             <p className='text-gray-800 py-1 dark:text-gray-300'>MongoDB</p>
@@ -96,81 +120,81 @@ export default function Home() {
         </div>
         <div className='flex flex-col gap-10 sm:py-10 py-0 mt-28'>
           <div className=' w-full grid xl:grid-cols-2 gap-7'>
-            <div class="flex rounded-lg  w-full">
-              <div class="rounded-lg shadow-lg bg-white w-full">
-                <video height="240" controls class="w-full rounded-t-lg">
+            <div className="flex rounded-lg  w-full">
+              <div className="rounded-lg shadow-lg bg-white w-full">
+                <video height="240" controls className="w-full rounded-t-lg">
                   <source src={p1} type="video/mp4"/>
                 </video>
-                <div class="p-6">
-                  <h5 class="text-teal-500 text-3xl font-bold mb-2">Paradise Store</h5>
-                  <p class="text-gray-700 sm:text-xl text-base mb-4">
+                <div className="p-6">
+                  <h5 className="text-teal-500 text-3xl font-bold mb-2">Paradise Store</h5>
+                  <p className="text-gray-700 sm:text-xl text-base mb-4">
                   Expérience dans le développement d'une application de magasin MERN réactive offrant une authentification sécurisée
-                  avec JWT et bcrypt pour la connexion et l'inscription des utilisateurs. Exploration d'un catalogue de produits 
+                  avec JWT et bcrypt pour la connexion et l'inscription des utilisateurs. <span className={`${read1? 'block' : 'hidden'}`}>Exploration d'un catalogue de produits 
                   diversifié avec un filtrage facile basé sur les types, tandis que des routes protégées garantissent une expérience
                   personnalisée et sécurisée. Les utilisateurs connectés peuvent gérer 
-                  facilement un panier d'achat personnalisé, permettant des paiements en ligne pour un processus de paiement fluide. 
+                  facilement un panier d'achat personnalisé, permettant des paiements en ligne pour un processus de paiement fluide. </span>
                   </p>
-                  
+                  <button onClick={() => handleReadMore(1)} className='border border-teal-500 text-teal-500 text-xl py-2 px-4 rounded-3xl hover:scale-105 duration-500 ease-linear transition-all'>{read1? 'Read Less' : 'Read More'}</button>
                 </div>
               </div>
             </div>
 
-            <div class="flex rounded-lg  w-full">
-              <div class="rounded-lg shadow-lg bg-white w-full">
-                <video height="240" controls class="w-full rounded-t-lg">
+            <div className="flex rounded-lg  w-full">
+              <div className="rounded-lg shadow-lg bg-white w-full">
+                <video height="240" controls className="w-full rounded-t-lg">
                   <source src={p2} type="video/mp4"/>
                 </video>
-                <div class="p-6">
-                  <h5 class="text-teal-500 text-3xl font-bold mb-2">BookingSpace</h5>
-                  <p class="text-gray-700 sm:text-xl text-base mb-4">
+                <div className="p-6">
+                  <h5 className="text-teal-500 text-3xl font-bold mb-2">BookingSpace</h5>
+                  <p className="text-gray-700 sm:text-xl text-base mb-4">
                   Présentation d'une plateforme de réservation dynamique basée sur MERN, similaire à des plateformes telles qu'Airbnb.
-                  Cette application complète offre aux utilisateurs la possibilité d'explorer une gamme diversifiée d'annonces immobilières,
+                  <span className={`${read2? 'block' : 'hidden'}`}>Cette application complète offre aux utilisateurs la possibilité d'explorer une gamme diversifiée d'annonces immobilières,
                   soumises par divers utilisateurs, qu'ils soient connectés ou non. Les utilisateurs connectés bénéficient
                   de l'avantage supplémentaire de contribuer à la plateforme en ajoutant ou modifiant leurs propres annonces immobilières.
                   Grâce à une authentification sécurisée utilisant JWT et bcrypt, la plateforme assure une gestion de compte protégée.
                   Les utilisateurs peuvent parcourir, réserver et gérer facilement des logements, favorisant une expérience de réservation
-                  fluide et interactive.
+                  fluide et interactive.</span>
                   </p>
-                  
+                  <button onClick={() => handleReadMore(2)} className='border border-teal-500 text-teal-500 text-xl py-2 px-4 rounded-3xl hover:scale-105 duration-500 ease-linear transition-all'>{read2? 'Read Less' : 'Read More'}</button>
                 </div>
               </div>
             </div>
 
-            <div class="flex rounded-lg  w-full">
-              <div class="rounded-lg shadow-lg bg-white w-full">
-                <video height="240" controls class="w-full rounded-t-lg">
+            <div className="flex rounded-lg  w-full">
+              <div className="rounded-lg shadow-lg bg-white w-full">
+                <video height="240" controls className="w-full rounded-t-lg">
                   <source src={p3} type="video/mp4"/>
                 </video>
-                <div class="p-6">
-                  <h5 class="text-teal-500 text-3xl font-bold mb-2">Samsung Store</h5>
-                  <p class="text-gray-700 sm:text-xl text-base mb-4">
+                <div className="p-6">
+                  <h5 className="text-teal-500 text-3xl font-bold mb-2">Samsung Store</h5>
+                  <p className="text-gray-700 sm:text-xl text-base mb-4">
                   Expérience dans la création d'un site web réactif, mettant en œuvre React et Tailwind CSS pour assurer une expérience utilisateur
-                  moderne et élégante. Le site offre une navigation fluide et une présentation attrayante des produits,
+                  moderne et élégante. <span className={`${read3? 'block' : 'hidden'}`}>Le site offre une navigation fluide et une présentation attrayante des produits,
                   adaptée à divers dispositifs. Découvrez une plateforme centrée sur l'utilisateur, 
                   alliant la puissance de React et le style de Tailwind pour une expérience de shopping en ligne immersive et visuellement 
-                  attrayante.
+                  attrayante.</span>
                   </p>
-                  
+                  <button onClick={() => handleReadMore(3)} className='border border-teal-500 text-teal-500 text-xl py-2 px-4 rounded-3xl hover:scale-105 duration-500 ease-linear transition-all'>{read3? 'Read Less' : 'Read More'}</button>
                 </div>
               </div>
             </div>
 
-            <div class="flex rounded-lg  w-full">
-              <div class="rounded-lg shadow-lg bg-white w-full">
-                <video height="240" controls class="w-full rounded-t-lg">
+            <div className="flex rounded-lg  w-full">
+              <div className="rounded-lg shadow-lg bg-white w-full">
+                <video height="240" controls className="w-full rounded-t-lg">
                   <source src={p4} type="video/mp4"/>
                 </video>
-                <div class="p-6">
-                  <h5 class="text-teal-500 text-3xl font-bold mb-2">Brightness</h5>
-                  <p class="text-gray-700 sm:text-xl text-base mb-4">
+                <div className="p-6">
+                  <h5 className="text-teal-500 text-3xl font-bold mb-2">Brightness</h5>
+                  <p className="text-gray-700 sm:text-xl text-base mb-4">
                   Brightness est une plateforme web intuitive développée avec la pile technologique MERN,
-                  conçue pour simplifier les tâches quotidiennes des éducateurs.
+                  conçue pour simplifier les tâches quotidiennes des éducateurs. <span className={`${read4? 'block' : 'hidden'}`}>
                   Avec des comptes d'enseignants pré-créés, le système propose une interface conviviale où les enseignants peuvent gérer
                   facilement leurs classes, accéder aux listes d'élèves et saisir les notes des examens.
                   De plus, les enseignants peuvent suivre la progression des étudiants, favorisant une expérience d'enseignement
-                  efficace et rationalisée. 
+                  efficace et rationalisée. </span> 
                   </p>
-                  
+                  <button onClick={() => handleReadMore(4)} className='border border-teal-500 text-teal-500 text-xl py-2 px-4 rounded-3xl hover:scale-105 duration-500 ease-linear transition-all'>{read4? 'Read Less' : 'Read More'}</button>
                 </div>
               </div>
             </div>
